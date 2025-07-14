@@ -1,0 +1,426 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background: #000;
+  color: #00ffff;
+}
+
+/* Glitch Effects */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text:hover::before,
+.glitch-text:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text:hover::before {
+  animation: glitch-1 0.3s infinite linear alternate-reverse;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.glitch-text:hover::after {
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+  color: #00ff00;
+  z-index: -2;
+}
+
+.glitch-large {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 #00ffff, -0.03em -0.04em 0 #ff00ff,
+    0.025em 0.04em 0 #ffff00;
+  animation: glitch 725ms infinite;
+}
+
+.glitch-large span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitch-large span:first-child {
+  animation: glitch 500ms infinite;
+  color: #00ffff;
+  z-index: -1;
+}
+
+.glitch-large span:last-child {
+  animation: glitch 375ms infinite;
+  color: #ff00ff;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00ffff, -0.03em -0.04em 0 #ff00ff,
+      0.025em 0.04em 0 #ffff00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00ffff, -0.03em -0.04em 0 #ff00ff,
+      0.025em 0.04em 0 #ffff00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00ffff, 0.025em 0.035em 0 #ff00ff,
+      -0.05em -0.05em 0 #ffff00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00ffff, 0.025em 0.035em 0 #ff00ff,
+      -0.05em -0.05em 0 #ffff00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00ffff, 0.03em 0 0 #ff00ff,
+      0 -0.04em 0 #ffff00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00ffff, 0.03em 0 0 #ff00ff,
+      0 -0.04em 0 #ffff00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00ffff, -0.025em -0.04em 0 #ff00ff,
+      -0.04em -0.025em 0 #ffff00;
+  }
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip: rect(1px, 9999px, 2px, 0);
+    transform: skew(0.5deg);
+  }
+  5% {
+    clip: rect(10px, 9999px, 12px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(20px, 9999px, 22px, 0);
+    transform: skew(0.1deg);
+  }
+  15% {
+    clip: rect(30px, 9999px, 32px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(40px, 9999px, 42px, 0);
+    transform: skew(0.5deg);
+  }
+  25% {
+    clip: rect(50px, 9999px, 52px, 0);
+    transform: skew(0.2deg);
+  }
+  30% {
+    clip: rect(60px, 9999px, 62px, 0);
+    transform: skew(0.4deg);
+  }
+  35% {
+    clip: rect(70px, 9999px, 72px, 0);
+    transform: skew(0.1deg);
+  }
+  40% {
+    clip: rect(80px, 9999px, 82px, 0);
+    transform: skew(0.3deg);
+  }
+  45% {
+    clip: rect(90px, 9999px, 92px, 0);
+    transform: skew(0.5deg);
+  }
+  50% {
+    clip: rect(100px, 9999px, 102px, 0);
+    transform: skew(0.2deg);
+  }
+  100% {
+    clip: rect(1px, 9999px, 2px, 0);
+    transform: skew(0.5deg);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip: rect(5px, 9999px, 7px, 0);
+    transform: skew(-0.5deg);
+  }
+  5% {
+    clip: rect(15px, 9999px, 17px, 0);
+    transform: skew(-0.4deg);
+  }
+  10% {
+    clip: rect(25px, 9999px, 27px, 0);
+    transform: skew(-0.1deg);
+  }
+  15% {
+    clip: rect(35px, 9999px, 37px, 0);
+    transform: skew(-0.3deg);
+  }
+  20% {
+    clip: rect(45px, 9999px, 47px, 0);
+    transform: skew(-0.5deg);
+  }
+  25% {
+    clip: rect(55px, 9999px, 57px, 0);
+    transform: skew(-0.2deg);
+  }
+  30% {
+    clip: rect(65px, 9999px, 67px, 0);
+    transform: skew(-0.4deg);
+  }
+  35% {
+    clip: rect(75px, 9999px, 77px, 0);
+    transform: skew(-0.1deg);
+  }
+  40% {
+    clip: rect(85px, 9999px, 87px, 0);
+    transform: skew(-0.3deg);
+  }
+  45% {
+    clip: rect(95px, 9999px, 97px, 0);
+    transform: skew(-0.5deg);
+  }
+  50% {
+    clip: rect(105px, 9999px, 107px, 0);
+    transform: skew(-0.2deg);
+  }
+  100% {
+    clip: rect(5px, 9999px, 7px, 0);
+    transform: skew(-0.5deg);
+  }
+}
+
+/* Scanlines Effect */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.03) 2px,
+    rgba(0, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* Static Noise */
+.static-noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.02;
+  background-image: 
+    radial-gradient(circle, #00ffff 1px, transparent 1px),
+    radial-gradient(circle, #ff00ff 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  animation: static 0.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes static {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.05; }
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.matrix-rain::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 98px,
+    rgba(0, 255, 0, 0.1) 100px
+  );
+  animation: matrix-fall 3s linear infinite;
+}
+
+@keyframes matrix-fall {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Typing Animation */
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid #00ffff;
+  white-space: nowrap;
+  animation: typing 0.5s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #00ffff; }
+}
+
+/* Achievement Progress Bar */
+@keyframes shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Line Clamp Utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cccc;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .glitch-large {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glitch-large {
+    font-size: 2rem;
+  }
+}
+
+/* Terminal Cursor */
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Hover Effects */
+.hover-glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+/* Focus Styles */
+input:focus, button:focus {
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
+}
+
+/* Custom Button Styles */
+.btn-glitch {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glitch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-glitch:hover::before {
+  left: 100%;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scanlines,
+  .static-noise,
+  .matrix-rain::before {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .scanlines,
+  .static-noise {
+    display: none;
+  }
+  
+  .text-cyan-400 {
+    color: #ffffff;
+  }
+  
+  .bg-black {
+    background-color: #000000;
+  }
+}
